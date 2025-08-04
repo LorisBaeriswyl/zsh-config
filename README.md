@@ -9,7 +9,7 @@ This repository contains a **modular, modern, and clean zsh configuration** usin
 1. **Clone the repository**:
 
 ```bash
-git clone https://github.com/<your-username>/zsh-config.git ~/.zsh-config
+git clone https://github.com/lorisbaeriswyl/zsh-config.git ~/.zsh-config
 ```
 
 2. **Link the main config file**:
