@@ -153,6 +153,27 @@ eval "$(thefuck --alias)"
 
 ---
 
+### [lazygit](https://github.com/jesseduffield/lazygit)
+
+> Terminal UI for Git. While not directly tied to Zsh, `lazygit` complements this configuration well as a fast and intuitive interface for managing Git repositories.
+
+To install:
+
+```sh
+brew install lazygit
+```
+
+Optional alias:
+
+```zsh
+alias lg='lazygit'
+```
+
+> \[!NOTE]
+> The config file can be override. Run `lazygit --print-config-dir` to find your actual path.
+
+---
+
 ## 🔄 Update everything
 
 To update all binaries installed by Zinit:
