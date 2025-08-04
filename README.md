@@ -51,7 +51,6 @@ Managed via `Oh My Zsh`:
 
 * `zsh-users/zsh-syntax-highlighting`
 * `zsh-users/zsh-autosuggestions`
-* `zsh-users/zsh-completions`
 
 Extra snippets (optional):
 
@@ -121,31 +120,6 @@ alias lg='ls --git'
 > `cat` clone with syntax highlighting and git integration.
 
 ![bat](https://camo.githubusercontent.com/a9789c5200bdb0a22602643d7bf85f0f424ddd4259e763abc865609010c5e228/68747470733a2f2f696d6775722e636f6d2f724773646e44652e706e67)
-
----
-
-### [delta](https://github.com/dandavison/delta)
-
-> Beautiful diff viewer for Git.
-
-![delta](https://user-images.githubusercontent.com/52205/86275526-76792100-bba1-11ea-9e78-6be9baa80b29.png)
-
-To integrate with Git:
-
-```ini
-[core]
-    pager = delta
-
-[interactive]
-    diffFilter = delta --color-only
-
-[delta]
-    navigate = true
-    dark = true
-
-[merge]
-    conflictstyle = zdiff3
-```
 
 ---
 
