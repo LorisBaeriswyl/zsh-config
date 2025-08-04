@@ -1,11 +1,14 @@
+# ~/.zsh/30-tools.zsh — Configuration runtime for CLI tools
+
+# thefuck: corrects previous command
 eval "$(thefuck --alias)"
 
-[[ -s "$(brew --prefix)/etc/profile.d/autojump.sh" ]] && source "$(brew --prefix)/etc/profile.d/autojump.sh"
-
+# zoxide: smarter cd
 if command -v zoxide &>/dev/null; then
   eval "$(zoxide init --cmd cd zsh)"
 fi
 
+# fzf: fuzzy finder with preview
 if command -v fzf &>/dev/null; then
   eval "$(fzf --zsh)"
   alias fzf='fzf --tmux'
@@ -17,11 +20,12 @@ if command -v fzf &>/dev/null; then
     --prompt="❯ "'
 fi
 
+# bat: enhanced cat
 if command -v bat &>/dev/null; then
   alias cat='bat --paging=never'
   export MANPAGER="sh -c 'col -bx | bat -l man -p'"
   export MANROFFOPT="-c"
   export PAGER="bat --paging=always --style=numbers,changes"
-  export DELTA_PAGER="bat -p"
 fi
+
 
