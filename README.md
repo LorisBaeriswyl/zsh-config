@@ -4,6 +4,29 @@ This repository contains a **modular, modern, and clean zsh configuration** usin
 
 ---
 
+## ✅ Prerequisites
+
+This configuration relies on **Zsh 5.8** or later and requires a few external tools:
+
+* [Oh My Zsh](https://ohmyz.sh/) – the plugin manager is installed by this repository if missing.
+* [zinit](https://github.com/zdharma-continuum/zinit) – used to install CLI tools from GitHub; it is automatically cloned.
+* [Starship](https://starship.rs) – the minimalist, cross‑shell prompt that replaces the default prompt.
+* **Nerd Font** – a patched font is required to display icons.
+
+On macOS, these dependencies can be installed with [Homebrew](https://brew.sh):
+
+```bash
+brew install starship fzf ripgrep bat eza zoxide thefuck lazygit
+```
+
+On Linux, use your distribution’s package manager (for example with apt):
+
+```bash
+sudo apt install starship fzf ripgrep bat eza zoxide thefuck lazygit
+```
+
+zinit will also install binaries for these tools if none are found.
+
 ## 📦 Installation
 
 1. **Clone the repository**:
@@ -22,6 +45,11 @@ ln -sf ~/.zsh-config/zshrc ~/.zshrc
 
 > \[!NOTE]
 > This setup assumes that tools like `fzf`, `bat`, `ripgrep`, etc. will be automatically handled and updated via `zinit`. Nerd Font is required.
+
+---
+## 🌐 Portability
+
+Although this configuration is optimised for **macOS**, it remains compatible with most Linux distributions. macOS‑specific paths (for example `/opt/homebrew`) are defined in `00-env.zsh`; adjust them if necessary. Absolute paths (Docker completions, PNPM) have been replaced with references to `$HOME` to improve portability.
 
 ---
 
@@ -61,65 +89,35 @@ Extra snippets (optional):
 ---
 
 ### [starship](https://starship.rs/)
-
-> Fast, cross-shell prompt with icons and customization.
-
-![starship](https://raw.githubusercontent.com/starship/starship/master/media/demo.gif)
-
-> \[!IMPORTANT]
-> Requires a [Nerd Font](https://www.nerdfonts.com/) to render icons properly.
+Fast, cross‑shell prompt with icons and extensive customisation.  
+To customise the appearance of your prompt, create a `~/.config/starship.toml` file and reference it via the `STARSHIP_CONFIG` variable defined in the configuration. See the [official documentation](https://starship.rs/config) for examples.
 
 ---
 
 ### [fzf](https://github.com/junegunn/fzf)
-
-> A fuzzy finder for the command line.
-
-![fzf](https://raw.githubusercontent.com/junegunn/i/master/fzf-preview.png)
-
-Includes `--tmux` integration, file preview with `bat`, and custom keybindings.
+A fuzzy finder for the command line.  
+In this configuration it is initialised automatically with `fzf --zsh`, provides `tmux` integration, file preview via `bat` and aliases (`f`, `fp`).
 
 ---
 
 ### [zoxide](https://github.com/ajeetdsouza/zoxide)
-
-> Smarter `cd` command. Tracks your most used folders.
-
-![zoxide](https://github.com/ajeetdsouza/zoxide/raw/main/contrib/tutorial.webp)
+A smarter alternative to `cd` that remembers frequently used directories and lets you jump to them quickly (`cd dir` becomes `z dir`).
 
 ---
 
 ### [eza](https://github.com/eza-community/eza)
-
-> Modern alternative to `ls`. Supports icons, git, tree view.
-
-![eza](https://github.com/eza-community/eza/raw/main/docs/images/screenshots.png)
-
-Aliases:
-
-```zsh
-alias ls='eza --icons --group-directories-first'
-alias la='ls -a'
-alias ll='ls -l'
-alias lt='ls --tree'
-alias lg='ls --git'
-```
+A modern replacement for `ls` (icons, Git information, tree view).  
+The aliases `ls`, `ll`, `la`, `lt` and `lsg` redirect to convenient `eza` options; they are defined in `~/.zsh_aliases`.
 
 ---
 
 ### [ripgrep](https://github.com/BurntSushi/ripgrep)
-
-> Fast recursive search, better than `grep`.
-
-![rg](https://burntsushi.net/stuff/ripgrep1.png)
+A very fast recursive search tool, better than `grep`.
 
 ---
 
 ### [bat](https://github.com/sharkdp/bat)
-
-> `cat` clone with syntax highlighting and git integration.
-
-![bat](https://camo.githubusercontent.com/a9789c5200bdb0a22602643d7bf85f0f424ddd4259e763abc865609010c5e228/68747470733a2f2f696d6775722e636f6d2f724773646e44652e706e67)
+Enhanced `cat` clone that shows syntax highlighting, line numbers and Git integration.
 
 ---
 
@@ -193,3 +191,7 @@ zinit update --parallel
 
 > \[!TIP]
 > You can back this repo up on GitHub and restore it on any new machine in seconds.
+
+## 📑 License
+
+This repository is released under the MIT license. See [LICENSE](LICENSE) for details.
